@@ -127,10 +127,6 @@ require('lspconfig')['pylsp'].setup {
     on_attach = on_attach,
 }
 
---require('lspconfig')['pyright'].setup{
---    on_attach = on_attach,
---    flags = lsp_flags,
---}
 -- ts tsserver
 require('lspconfig')['tsserver'].setup{
     on_attach = on_attach,
@@ -144,4 +140,14 @@ require('lspconfig')['rust_analyzer'].setup{
     settings = {
       ["rust-analyzer"] = {}
     }
+}
+-- php
+require('lspconfig')['phpactor'].setup{
+    on_attach = on_attach,
+    flags = lsp_flags,
+}
+-- clang
+require('lspconfig')['clangd'].setup{
+    on_attach = on_attach,
+    flags = lsp_flags,
 }

@@ -26,6 +26,7 @@ return require('packer').startup(function(use)
     -- theme
     use {'dracula/vim', as='dracula'}
     -- line
+    use {'kyazdani42/nvim-web-devicons'}
     use {
         'nvim-lualine/lualine.nvim',
         requires = { 'kyazdani42/nvim-web-devicons', opt = true }
@@ -53,7 +54,14 @@ return require('packer').startup(function(use)
             'kyazdani42/nvim-web-devicons', -- optional, for file icons
         }
     }
-
+    --Snippets
+    -- Track the engine.
+    use {
+        'SirVer/ultisnips',
+        requires = {
+            'honza/vim-snippets'
+        }
+    }
 
   if packer_bootstrap then
     require('packer').sync()

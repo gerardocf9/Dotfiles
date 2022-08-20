@@ -26,7 +26,16 @@ vim.cmd('colorscheme dracula')
 
     -- line
 require('lualine').setup {
-  options = { theme  = 'dracula' },
+    icons_enabled = true,
+    options = { theme  = 'dracula' },
+}
+require'nvim-web-devicons'.setup {
+ -- your personnal icons can go here (to override)
+ -- you can specify color or cterm_color instead of specifying both of them
+ -- DevIcon will be appended to `name`
+ -- globally enable default icons (default to false)
+ -- will get overriden by `get_icons` option
+ default = true;
 }
 
     -- telescope
@@ -81,4 +90,14 @@ require("nvim-tree").setup()
 -- en keybinds
 
 
+--************** ultisnips *******************************
+
+
+-- Trigger configuration. You need to change this to something other than <tab> if you use one of the following:
+    vim.cmd([[
+let g:UltiSnipsExpandTrigger="<s-tab>"
+let g:UltiSnipsJumpForwardTrigger="<s-tab>"
+let g:UltiSnipsJumpBackwardTrigger="<c-tab>"
+let g:UltiSnipsEditSplit="vertical"
+]])
 
