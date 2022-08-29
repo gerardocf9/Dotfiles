@@ -88,11 +88,16 @@ let g:closetag_shortcut = '>'
 -- empty setup using defaults
 require("nvim-tree").setup()
 -- en keybinds
-
+    --
+    --
+-- TODO
+require("todo-comments").setup {
+    -- your configuration comes here
+    -- or leave it empty to use the default settings
+    -- refer to the configuration section below
+}
 
 --************** ultisnips *******************************
-
-
 -- Trigger configuration. You need to change this to something other than <tab> if you use one of the following:
     vim.cmd([[
 let g:UltiSnipsExpandTrigger="<s-tab>"

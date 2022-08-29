@@ -95,3 +95,10 @@ nmap{"<leader>nq","<cmd>NvimTreeToggle<CR>"}
 --
 --:NvimTreeCollapse Collapses the nvim-tree recursively.
 
+-- ----------------------------------
+--      TODO
+-- list TodoQuickFix
+nmap{"<leader>tdq","<cmd>TodoQuickFix<CR>"}
+
+-- list TodoTelescope
+nmap{"<leader>tdt","<cmd>TodoTelescope<CR>"}

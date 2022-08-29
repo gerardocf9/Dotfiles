@@ -55,12 +55,17 @@ return require('packer').startup(function(use)
         }
     }
     --Snippets
-    -- Track the engine.
     use {
         'SirVer/ultisnips',
         requires = {
             'honza/vim-snippets'
         }
+    }
+
+  -- comentarios todo
+    use {
+        "folke/todo-comments.nvim",
+        requires = "nvim-lua/plenary.nvim",
     }
 
   if packer_bootstrap then
