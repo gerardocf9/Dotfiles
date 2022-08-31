@@ -106,3 +106,5 @@ let g:UltiSnipsJumpBackwardTrigger="<c-tab>"
 let g:UltiSnipsEditSplit="vertical"
 ]])
 
+--****************** ident line  ***************
+vim.cmd('let g:indentLine_setColors = 0')
