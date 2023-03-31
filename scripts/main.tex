@@ -1,0 +1,86 @@
+
+\documentclass[12pt]{article}
+
+\usepackage{tocbibind} 
+
+\usepackage[a4paper]{geometry}
+\geometry{top=2.54cm, bottom=2.54cm, left=3.2cm, right=2.54cm}
+
+\usepackage[spanish]{babel}
+
+%Encoding input/output especifications
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{graphicx} % graficos
+\graphicspath{ {./images/} }
+
+
+%\usepackage{float}
+%Floats are containers for things in a document that cannot be broken over a page
+
+%\usepackage{array}%centrar verticalmente en tablas
+
+%\usepackage[none]{hyphenat}%add or delete hypenation in words
+%\hyphenation{mi-cro-elec-tro-me-cá-ni-cos}
+
+%\usepackage{setspace}%interlineado agrega:
+% \doublespacing \\onehalfspace \\singlespace \\spacing{src/cap/x}
+%\spacing{1.5}
+%\setlength{\\parindent}{0pt}
+%\pagestyle{headings}
+%\setlength{\\parskip}{12pt}
+
+
+%\usepackage[backend=biber, autocite=inline, labeldateparts=true, maxcitenames=1,style = apa]{biblatex}
+%\addbibresource{bibliografias.bib}
+
+
+%\usepackage{csquotes}%cites
+
+%\usepackage[bookmarks = true, colorlinks=true, linkcolor = black, citecolor = black, menucolor = black, urlcolor = black]{hyperref}
+
+
+%\usepackage{enumitem}% Change spacing in items of list
+%\setlist[itemize]{noitemsep}
+
+%\usepackage{pdfpages}%Include pdfs
+
+
+\begin{document}
+
+%   \sloppy
+%   \pagenumbering{roman}
+%	\include{src/portada}
+%   \include{src/contraportada}
+%   \newpage
+%   \include{src/dedicatoria}
+%   \include{src/agradecimientos}
+%	\tableofcontents
+%	\newpage
+%	\listoffigures
+%	\newpage
+%	\listoftables
+%   \include{src/resumen}
+
+
+\include{src/ }
+
+%***************************************************
+%**********  Capitulos   ***************************
+%***************************************************
+%	\newpage
+%   \begingroup
+%   \let\\clearpage\\relax
+%	\include{src/cap2/antecedentes}
+%	\include{src/cap2/Marco_teorico}
+%   \endgroup
+%***************************************************
+%**********  Anexos      ***************************
+%***************************************************
+%\appendix
+%\counterwithin{figure}{section} %counter to use section level
+%\setcounter{figure}{0}%set counter to 0
+%\include{src/anexos}
+
+\end{document}
