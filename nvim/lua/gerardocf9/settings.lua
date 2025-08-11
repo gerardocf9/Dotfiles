@@ -8,6 +8,13 @@ vim.o.scrolloff = 8 --mantiene el cursoe en el centro 8 lineas siempre arriba o 
 vim.o.guicursor = "" --vim.cmd("set guicursor") --cursor siempre como bloque
 --set cursorline   Resalta la línea actual
 
+-- desactivar providers sin uso
+vim.g.loaded_perl_provider = 0
+vim.g.loaded_ruby_provider = 0
+
+-- venv de python
+vim.g.python3_host_prog = vim.fn.expand("~/.venvs/neovim/bin/python3")
+
 -- Numeros
 vim.o.nu = true -- muestra el numero de linea
 vim.o.relativenumber = true --  Muestra los números relativos

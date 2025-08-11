@@ -25,7 +25,11 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, bufopts)
   vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, bufopts)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-  vim.keymap.set('n', '<leader>f', vim.lsp.buf.formatting, bufopts)
+    -- en tu on_attach(...)
+  vim.keymap.set('n', '<leader>f',
+      function() vim.lsp.buf.format({ async = true }) end,
+      bufopts
+  )
 
 	if client.server_capabilities.document_formatting then
 		vim.cmd([[
