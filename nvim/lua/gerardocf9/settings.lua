@@ -5,7 +5,7 @@ vim.cmd("set title") -- Muestra el nombre del archivo en la ventana de la termin
 vim.o.ma = true -- Permite la integración del mouse (seleccionar texto, mover el cursor)
 vim.cmd("set mouse=a  ")-- Permite la integración del mouse (seleccionar texto, mover el cursor)
 vim.o.scrolloff = 8 --mantiene el cursoe en el centro 8 lineas siempre arriba o abajo
-vim.o.guicursor = true --vim.cmd("set guicursor") --cursor siempre como bloque
+vim.o.guicursor = "" --vim.cmd("set guicursor") --cursor siempre como bloque
 --set cursorline   Resalta la línea actual
 
 -- Numeros
