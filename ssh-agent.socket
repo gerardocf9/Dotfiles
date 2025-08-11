@@ -1,0 +1,10 @@
+[Unit]
+Description=SSH Agent (socket)
+
+[Socket]
+ListenStream=%t/ssh-agent.socket
+FileDescriptorName=ssh_auth_sock
+SocketMode=0600
+
+[Install]
+WantedBy=sockets.target
