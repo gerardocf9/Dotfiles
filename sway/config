@@ -69,6 +69,7 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 #
     # Start a terminal
     bindsym $mod+Return exec env WINIT_UNIX_BACKEND=wayland alacritty
+
     bindsym $mod+t exec env WINIT_UNIX_BACKEND=wayland alacritty
 
 
@@ -244,4 +245,7 @@ bindsym Print exec grim -g "$(slurp)" - | wl-copy
 
 # Activar NumLock siempre al iniciar sway
 exec_always --no-startup-id swaymsg input type:keyboard xkb_numlock enabled
+
+# Manejador de redes
+exec  nm-applet --indicator
 

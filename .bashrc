@@ -12,11 +12,21 @@ export TERM=xterm-256color
 # ---------------
 # Historial
 # ---------------
-HISTCONTROL=ignoredups:erasedups
-HISTSIZE=5000
-HISTFILESIZE=10000
-shopt -s histappend
-PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+## Historial por "slot" de terminal (persistente)
+if [ -n "$TERMINAL_SLOT" ]; then
+  HISTFILE="$HOME/.bash_history.slot_$TERMINAL_SLOT"
+  HISTSIZE=20000
+  HISTFILESIZE=200000
+  shopt -s histappend
+  # Sincroniza el historial por prompt: escribe, limpia, relee
+  PROMPT_COMMAND='history -a; history -c; history -r; '"$PROMPT_COMMAND"
+fi
+
+#HISTFILE=~/.bash_history_$$
+#HISTCONTROL=ignoredups:erasedups
+#HISTSIZE=5000
+#HISTFILESIZE=10000
+#PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
 # ---------------
 # Prompt estilo Ubuntu (verde/azul clásico)
@@ -41,6 +51,7 @@ alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias update='sudo apt update && sudo apt upgrade'
 
+alias generatePentaLicense='/home/gerardo/backs/licencias/pentaLicense/generarLicencia'
 # ---------------
 # Autocompletado
 # ---------------

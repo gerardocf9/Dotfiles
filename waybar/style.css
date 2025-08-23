@@ -116,15 +116,17 @@ label:focus {
 #clock,
 #custom-backlight,
 #idle_inhibitor,
+#tray,
 #pulseaudio {
     background-color: #6a6262;
     color: #ffffff;
     min-width: 20px;       /* ancho mínimo */
-    margin: 0 0 0 1px;         /* margen vertical 0px, horizontal 2px */
-    padding: 0 4px;        /* padding vertical 0px, horizontal 4px */
+    padding: 0 10px 0 4px;        /* padding vertical 0px, horizontal 4px */
     border-radius: 6px;    /* esquinas redondeadas */
 }
-
+#clock, #tray{
+    padding: 0 4px;        /* padding vertical 0px, horizontal 4px */
+}
 
 #network.disconnected {
     background-color: #f53c3c;
@@ -148,9 +150,6 @@ label:focus {
     background-color: #eb4d4b;
 }
 
-#tray {
-    background-color: #2980b9;
-}
 
 #tray > .passive {
     -gtk-icon-effect: dim;
