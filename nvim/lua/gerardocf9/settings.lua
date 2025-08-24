@@ -84,3 +84,18 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 
+-- Show Errors
+-- vim.diagnostic.config({
+  --virtual_text = {
+    --prefix = "●", -- puedes usar "●", "■", "▎", o incluso "" si no quieres prefijo
+    --spacing = 2,  -- espacio entre texto y mensaje
+  --},
+  --signs = true,
+  --underline = true,
+  --update_in_insert = false,
+  --severity_sort = true,
+--})
+
+
+vim.o.updatetime = 250
+vim.cmd [[autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })]]
