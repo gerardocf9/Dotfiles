@@ -1,4 +1,4 @@
-
+local util = require('lspconfig.util')   
 
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 
@@ -125,6 +125,21 @@ require('lspconfig')['gopls'].setup {
 	},
 }
 
+-- ProtoBuffers ->  Bufls
+-- go install github.com/bufbuild/buf-language-server/cmd/bufls@latest
+require('lspconfig')['buf_ls'].setup{
+    cmd = { "bufls", "serve" },
+    filetypes = { "proto" },
+    capabilities = capabilities,
+    on_attach = on_attach,
+    flags = lsp_flags,
+    root_dir = function(fname)
+        -- busca buf/work o .git; si no hay, usa la carpeta del archivo
+        return util.root_pattern('buf.work.yaml', 'buf.yaml', '.git')(fname)
+            or util.path.dirname(fname)
+    end,
+}
+
 -- Python pylsp
 require('lspconfig')['pylsp'].setup {
     capabilities = capabilities,
@@ -154,6 +169,8 @@ require('lspconfig')['phpactor'].setup{
 require('lspconfig')['clangd'].setup{
     on_attach = on_attach,
     flags = lsp_flags,
+    -- nada de 'proto' aquí
+    filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
 }
 
 -- texlab

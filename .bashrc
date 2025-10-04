@@ -95,3 +95,21 @@ npm()  { _nvm_lazy_load; command npm "$@"; }
 npx()  { _nvm_lazy_load; command npx "$@"; }
 nvm()  { _nvm_lazy_load; nvm "$@"; }
 # --- fin ---
+
+
+# generate documentacion
+swaginit() {
+  local file=${1:-./main.go}
+  swag init \
+    --generalInfo "$file" \
+    --parseDependency \
+    --parseDependencyLevel 3 \
+    --parseInternal \
+    --parseDepth 4
+}
+
+gobuild(){
+  local file=${1:-./main.go}
+  local fileOut=${2:-./mainPort}
+  CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o "$fileOut" "$file"
+}

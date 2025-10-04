@@ -9,6 +9,8 @@
 # Logo key. Use Mod1 for Alt.
 set $mod Mod1
 
+default_orientation horizontal
+
 xwayland enable
 
 # Home row direction keys, like vim
@@ -28,7 +30,7 @@ include /etc/sway/config-vars.d/*
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+output * bg /home/gerardo/Dotfiles/fondo.png fill
 #
 # Example configuration:
 #
