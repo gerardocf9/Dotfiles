@@ -113,3 +113,5 @@ gobuild(){
   local fileOut=${2:-./mainPort}
   CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o "$fileOut" "$file"
 }
+. "$HOME/.cargo/env"
+export PATH="$HOME/.cargo/bin:$PATH"

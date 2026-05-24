@@ -23,7 +23,8 @@ set $term foot
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu wofi --show run 
+set $menu wofi --show run
+set $menu_apps wofi --show drun
 
 include /etc/sway/config-vars.d/*
 
@@ -80,6 +81,7 @@ output * bg /home/gerardo/Dotfiles/fondo.png fill
 
     # Start your launcher
     bindsym $mod+d exec $menu
+    bindsym $mod+Shift+d exec $menu_apps
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
