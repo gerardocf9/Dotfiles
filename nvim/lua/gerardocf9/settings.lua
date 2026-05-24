@@ -74,6 +74,21 @@ set signcolumn=yes "columna adicional
 
 -- Makes neovim and host OS clipboard play nicely with each other
 vim.o.clipboard = 'unnamedplus'
+vim.g.clipboard = {
+  name = "OSC 52",
+  copy = {
+    ["+"] = require("vim.ui.clipboard.osc52").copy("+"),
+    ["*"] = require("vim.ui.clipboard.osc52").copy("*"),
+  },
+  paste = {
+    ["+"] = function()
+      return { vim.fn.split(vim.fn.getreg('"'), "\n"), vim.fn.getregtype('"') }
+    end,
+    ["*"] = function()
+      return { vim.fn.split(vim.fn.getreg('"'), "\n"), vim.fn.getregtype('"') }
+    end,
+  },
+}
 
 -- Better buffer splitting
 vim.o.splitright = true

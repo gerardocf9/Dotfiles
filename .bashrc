@@ -115,3 +115,4 @@ gobuild(){
 }
 . "$HOME/.cargo/env"
 export PATH="$HOME/.cargo/bin:$PATH"
+alias vmdev='kitty ssh igtestdev@192.168.122.43'
