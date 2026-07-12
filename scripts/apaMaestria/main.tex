@@ -1,0 +1,200 @@
+% ============================================================================
+% Plantilla de tesis de MAESTRÍA — Normas APA, sexta edición (español)
+% Fuente de reglas: Centro de Escritura Javeriano (2018), Normas APA 6ª ed.
+% Motor: pdfLaTeX (fuente Times vía newtx). Bibliografía: biblatex + biber.
+%
+% Compilar:
+%   pdflatex <archivo> && biber <archivo> && pdflatex <archivo> && pdflatex <archivo>
+% ============================================================================
+
+\documentclass[letterpaper,12pt]{article}   % §1.1 papel carta · §1.3 12 pt
+
+% ---------------------------------------------------------------------------
+% Idioma y codificación
+% ---------------------------------------------------------------------------
+\usepackage[spanish,es-nodecimaldot]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% ---------------------------------------------------------------------------
+% Fuente: Times New Roman (clon newtx) — §1.3
+% ---------------------------------------------------------------------------
+\usepackage{newtxtext,newtxmath}
+
+% ---------------------------------------------------------------------------
+% Márgenes 2.54 cm en los cuatro lados — §1.2
+% ---------------------------------------------------------------------------
+\usepackage[letterpaper,margin=2.54cm]{geometry}
+
+% ---------------------------------------------------------------------------
+% Interlineado 2.0 — §1.4
+% ---------------------------------------------------------------------------
+\usepackage{setspace}
+\doublespacing
+
+% ---------------------------------------------------------------------------
+% Alineación a la izquierda, SIN justificar — §1.4
+% ---------------------------------------------------------------------------
+\usepackage[document]{ragged2e}
+\setlength{\RaggedRightParindent}{1.27cm}   % conserva sangría con ragged
+
+% Sangría 1ª línea (5 espacios ≈ 0.5 in) — §1.5 · sin espacio entre párrafos — §1.4
+\setlength{\parindent}{1.27cm}
+\setlength{\parskip}{0pt}
+
+% ---------------------------------------------------------------------------
+% Gráficos, tablas (solo líneas horizontales — §1.6, §3.3) y comillas
+% ---------------------------------------------------------------------------
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+\usepackage{booktabs}     % \toprule \midrule \bottomrule — NO usar \hline por celda
+\usepackage{csquotes}
+
+% ---------------------------------------------------------------------------
+% Encabezados APA de 5 niveles — §2.2
+%   N1: centrado, negrita
+%   N2: alineado izq., negrita
+%   N3: sangría, negrita, run-in, termina en punto
+%   N4: sangría, negrita+cursiva, run-in, termina en punto
+%   N5: sangría, cursiva, run-in, termina en punto
+% Recuerda: mayúscula inicial solo en la 1ª palabra — §2.1
+% ---------------------------------------------------------------------------
+\usepackage{titlesec}
+
+% article: section=N1, subsection=N2, subsubsection=N3, paragraph=N4, subparagraph=N5
+\titleformat{\section}{\normalfont\bfseries\centering}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalfont\bfseries\raggedright}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}[runin]{\normalfont\bfseries}{}{0pt}{}[.\quad]
+\titleformat{\paragraph}[runin]{\normalfont\bfseries\itshape}{}{0pt}{}[.\quad]
+\titleformat{\subparagraph}[runin]{\normalfont\itshape}{}{0pt}{}[.\quad]
+
+% Sangría de los niveles run-in (N3, N4, N5)
+\titlespacing{\subsubsection}{1.27cm}{\parskip}{0.5em}
+\titlespacing{\paragraph}{1.27cm}{\parskip}{0.5em}
+\titlespacing{\subparagraph}{1.27cm}{\parskip}{0.5em}
+
+% ---------------------------------------------------------------------------
+% Numeración de páginas (esquina superior derecha)
+% ---------------------------------------------------------------------------
+\usepackage{fancyhdr}
+\setlength{\headheight}{14.5pt}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+
+% ---------------------------------------------------------------------------
+% Bibliografía APA — §12 (sangría francesa y orden alfabético automáticos)
+% ---------------------------------------------------------------------------
+\usepackage[backend=biber,style=apa,language=spanish,sortcites=true,sorting=nyt]{biblatex}
+\DeclareLanguageMapping{spanish}{spanish-apa}
+\addbibresource{referencias.bib}
+
+% ---------------------------------------------------------------------------
+% Hiperenlaces (en negro para impresión formal)
+% ---------------------------------------------------------------------------
+\usepackage[colorlinks=true,linkcolor=black,citecolor=black,urlcolor=black,plainpages=false,hypertexnames=false]{hyperref}
+
+% ============================================================================
+\begin{document}
+
+% ---------------------------------------------------------------------------
+% PORTADA de maestría
+% NOTA: APA 6ª ed. no define portada (guía §23). Ajusta los datos de tu
+% universidad/programa; conserva "contenido-titulo" (el script lo sustituye).
+% ---------------------------------------------------------------------------
+\begin{titlepage}
+    \centering
+    \thispagestyle{empty}
+    \singlespacing
+    \vspace*{1cm}
+
+    {\bfseries UNIVERSIDAD [NOMBRE DE LA UNIVERSIDAD]\par}
+    {\bfseries FACULTAD DE [NOMBRE DE LA FACULTAD]\par}
+    {[Maestría en \_\_\_\_\_\_\_\_\_\_\_\_]\par}
+
+    \vfill
+
+    {\LARGE\bfseries contenido-titulo\par}
+
+    \vspace{1cm}
+    {[Trabajo de grado para optar al título de Magíster en \_\_\_\_\_\_\_\_\_\_]\par}
+
+    \vfill
+
+    {\bfseries Autor\par}
+    {[Nombre completo del autor]\par}
+
+    \vspace{0.8cm}
+    {\bfseries Asesor\par}
+    {[Nombre completo del asesor]\par}
+
+    \vfill
+
+    {[Ciudad, País]\par}
+    {[Año]\par}
+\end{titlepage}
+
+% ---------------------------------------------------------------------------
+% Preliminares (numeración romana). Descomenta lo que necesites.
+% ---------------------------------------------------------------------------
+\pagenumbering{roman}
+%   \include{src/dedicatoria}
+%   \include{src/agradecimientos}
+%   \include{src/resumen}
+    \tableofcontents
+    \newpage
+%   \listoffigures
+%   \listoftables
+
+% ---------------------------------------------------------------------------
+% Cuerpo del documento (numeración arábiga)
+% ---------------------------------------------------------------------------
+\clearpage
+\pagenumbering{arabic}
+
+% Escribe cada apartado en src/ y descoméntalo aquí.
+% Cada \section es un encabezado de Nivel 1 (mayúscula solo inicial — §2.1).
+    \include{src/introduccion}
+%   \include{src/marco_teorico}
+%   \include{src/metodologia}
+%   \include{src/resultados}
+%   \include{src/discusion}
+%   \include{src/conclusiones}
+
+% ---------------------------------------------------------------------------
+% Referencias — §12 (biblatex-apa: sangría francesa + orden alfabético)
+% ---------------------------------------------------------------------------
+\newpage
+\printbibliography[title=Referencias]
+
+% ---------------------------------------------------------------------------
+% Anexos (opcional)
+% ---------------------------------------------------------------------------
+%   \newpage
+%   \appendix
+%   \include{src/anexos}
+
+\end{document}
+
+% ============================================================================
+% RECORDATORIOS APA que el motor NO automatiza (revisa al escribir):
+%
+%  Citas en el texto (biblatex-apa) — §5–§11:
+%    \textcite{clave}   -> Apellido (Año) afirma...           (basada en autor)
+%    \parencite{clave}  -> ...idea... (Apellido, Año)         (basada en texto)
+%    \parencite[p.~90]{clave} -> ... (Apellido, Año, p. 90)   (cita textual — §6)
+%    3–5 autores: 1ª cita todos, luego "et al." (biblatex lo hace) — §10.2
+%    Autor corporativo, s.f., "como se citó en", etc. — §11
+%
+%  Cita textual < 40 palabras: entre comillas, en el párrafo, sin cursiva — §7
+%  Cita textual > 40 palabras: bloque con sangría, sin comillas — §8
+%    \begin{quote} ... texto ... \parencite[p.~##]{clave} \end{quote}
+%
+%  Títulos: mayúscula SOLO en la primera palabra, no en mayúscula sostenida — §2.1
+%
+%  Tablas — §3: número + título breve en cursiva ARRIBA; sin líneas internas
+%    (solo \toprule/\midrule/\bottomrule); nota debajo; si es propia: "Autoría propia."
+%
+%  Figuras — §4: "Figura X." en cursiva; nota debajo con el mismo tamaño de letra.
+% ============================================================================

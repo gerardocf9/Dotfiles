@@ -52,6 +52,7 @@ alias fgrep='fgrep --color=auto'
 alias update='sudo apt update && sudo apt upgrade'
 
 alias generatePentaLicense='/home/gerardo/backs/licencias/pentaLicense/generarLicencia'
+alias apamaestria='sh /home/gerardo/Dotfiles/scripts/apaMaestria/create-apa-maestria.sh'
 # ---------------
 # Autocompletado
 # ---------------
@@ -116,3 +117,7 @@ gobuild(){
 . "$HOME/.cargo/env"
 export PATH="$HOME/.cargo/bin:$PATH"
 alias vmdev='kitty ssh igtestdev@192.168.122.43'
+export PATH="$HOME/flutterdev/flutter/bin:$PATH"
+export ANDROID_HOME=/usr/lib/android-sdk
+export ANDROID_SDK_ROOT=/usr/lib/android-sdk
+export PATH="$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools:$PATH"
